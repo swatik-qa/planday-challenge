@@ -31,7 +31,14 @@ Then(/^I expect to see the Login button$/, async () => {
     await expect(LoginPage.btnSubmit).toBeDisplayed();
 });
 
+When(/^I login with invalid (.*) and (.*)$/, async (username, password) => {
+    await LoginPage.login(username, password);
+});
 
+Then(/^I should see (.*) and (.*)$/, async (username_message, password_message) => {
+    await expect(LoginPage.usernameError).toBeExisting();
+    await expect(LoginPage.passwordError).toBeExisting();
+});
 
 
 

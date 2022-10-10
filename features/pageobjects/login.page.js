@@ -29,6 +29,14 @@ class LoginPage extends Page {
         return $('#MainLoginButton');
     }
 
+    get usernameError() {
+        return $('#Username-validation-error');
+    }
+
+    get passwordError() {
+        return $('#Password-validation-error');
+    }
+
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
