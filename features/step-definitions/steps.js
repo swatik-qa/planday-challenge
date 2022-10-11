@@ -36,9 +36,23 @@ When(/^I login with invalid (.*) and (.*)$/, async (username, password) => {
 });
 
 Then(/^I should see (.*) and (.*)$/, async (username_message, password_message) => {
-    await expect(LoginPage.usernameError).toBeExisting();
-    await expect(LoginPage.passwordError).toBeExisting();
+    await expect(LoginPage.usernameError).toBePresent();
+    await expect(LoginPage.passwordError).toBePresent();
 });
+
+When(/^I login with "([^"]*)" and "([^"]*)"$/, async (username, password) => {
+    await LoginPage.login(username, password);
+});
+
+Then(/^I expect to be on the Homepage$/, async () => {
+    await expect(browser).toHaveUrl('https://test1234.planday.com/home');
+});
+
+
+
+
+
+
 
 
 

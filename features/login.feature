@@ -9,9 +9,17 @@ Feature: Planday Login Page
     Then I expect to see the Password field
     Then I expect to see the Login button
 
+  Scenario: As a user, I should be able to log in to the site
+
+    Given I am on the login page
+    When I click the cookie consent button
+    When I login with "plandayqa@outlook.com" and "APItesting21"
+    Then I expect to be on the Homepage
+
   Scenario Outline: As a user, I should not be able to log in with invalid credentials
 
     Given I am on the login page
+    When I click the cookie consent button
     When I login with invalid <username> and <password>
     Then I should see <username_message> and <password_message>
 
