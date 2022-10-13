@@ -69,6 +69,35 @@ Then(/^I should be able to see 3 employees$/, async () => {
     expect(count.length).toEqual(3);
 });
 
+When(/^I click on the grid cell$/, async () => {
+    // switch to iframe as the sheet is in an iframe
+    const mainIframe = await $('[data-testID="app-frame"]');
+    await mainIframe.waitForExist({ timeout: 5000 });
+    await browser.switchToFrame(mainIframe);
+    await SchedulePage.gridCellEmployee1.click();
+});
+
+Then(/^I expect to see the dialog box open$/, async () => {
+    await expect(SchedulePage.shiftDialogBox).toBeDisplayed();
+});
+
+When(/^I create shift with from time "([^"]*)" and to time "([^"]*)"$/, async (from, to) => {
+    await SchedulePage.setShiftTime(from, to);
+});
+
+When(/^I click on Create button$/, async () => {
+    await SchedulePage.createButton.click();
+    await browser.pause(5000);
+});
+
+Then(/^I should be able to see the created shift on the schedule grid$/, async () => {
+    await SchedulePage.shiftTile.waitForExist({ timeout: 5000 });
+    await expect(SchedulePage.shiftTile).toBePresent();
+});
+
+
+
+
 
 
 
