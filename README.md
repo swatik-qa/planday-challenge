@@ -28,8 +28,3 @@ git clone https://github.com/swatik-qa/planday-challenge.git
 1. Browser reloads after each scenario. This is because afterScenario hook is set up in wdio.conf.js file
 2. While running the login test for invalid credentials, I came across captcha verification because of repeated invalid credentials. Just to note that captcha is not handled as a part of this assessment as of now
 3. As a part of test wherein new shift is added for Employee 1, once a shift is added as a result of the test execution, next time same test will fail. This is because data is not getting deleted before the test runs next time. This is also not handled as a part of this assessment
-
-
-
-
-
