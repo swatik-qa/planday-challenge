@@ -7,12 +7,18 @@ Note that the assessment is done using Webdriverio Cucumber (BDD framework) and 
 Code is present in Github on the branch "planday-code" in the repository "planday-challenge". 
 To run the tests in your local, you will have to clone the repository "planday-challenge".
 
+Pre-requisites:
+- You should have npm and node.js installed on your machine. You can install from here: https://nodejs.org/en/download/ in case you don't have.
+- In case you run with Chromedriver issues with your browser, make sure you have the latest version of Chrome available which is Chrome 106.
+
+To run the tests:
 1. Go to Github on the repository page, click on the "Code" button and copy the repository URL
 2. Open Terminal, go to the location where you want to clone the repository and run the command:
 git clone https://github.com/swatik-qa/planday-challenge.git
 3. Once you have cloned the repository in your local, run git status to verify if you are on the main branch.
 4. Now, checkout the branch "planday-code" using command git checkout -b "planday-code"
 5. You will see all the folders and files on your local now
+6. Run: npm ci to install all the dependencies needed.
 6. You need to run 'npm run wdio' to run all the tests on your local
 
 ## Structure & Organisation of folders and files
