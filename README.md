@@ -1,6 +1,6 @@
 # Planday Challenge
 
-Note that the assessment is done using Webdriverio Cucumber (BDD framework) using Javascript as the programming language. All the actions and assertions are done as mentioned in the challenge.
+Note that the assessment is done using Webdriverio Cucumber (BDD framework) and Javascript. All the actions and assertions are done as mentioned in the challenge.
 
 ## How to run tests on your local
 
@@ -25,6 +25,7 @@ git clone https://github.com/swatik-qa/planday-challenge.git
 
 ## NOTE
 
-1. Browser reloads after each scenario. This is because afterScenario hook is set up in wdio.conf.js file
-2. While running the login test for invalid credentials, I came across captcha verification because of repeated invalid credentials. Just to note that captcha is not handled as a part of this assessment as of now
-3. As a part of test wherein new shift is added for Employee 1, once a shift is added as a result of the test execution, next time same test will fail. This is because data is not getting deleted before the test runs next time. This is also not handled as a part of this assessment
+1. Used afterScenario hook in wdio.conf to refresh browser session between each scenario. This helps each scenario to run independently and in parallel.
+2. While running the login test for invalid credentials, I came across captcha verification because of repeated invalid credentials. Just to note that captcha is not handled as a part of this assessment as of now. One of the ways to handle this would be to whitelist test account so that captcha is not shown for this account.
+3. As a part of test wherein new shift is added for Employee 1, once a shift is added as a result of the test execution, next time same test will fail. This is because there is already an entry for Employee on that day.
+4. While testing the schedule page scenarios, I noticed the presence of iframe in HTML DOM which was handled by first waiting for the iframe to load, then switching to the iframe and then interacting with the elements within the iframe
