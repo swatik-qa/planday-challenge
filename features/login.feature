@@ -14,7 +14,7 @@ Feature: Planday Login Page
     Given I am on the login page
     When I click the cookie consent button
     When I login with "plandayqa@outlook.com" and "APItesting21"
-    Then I expect to be on the Homepage
+    Then I expect to be on the "Homepage"
 
   Scenario Outline: As a user, I should not be able to log in with invalid credentials
 

@@ -1,7 +1,7 @@
 const { Given, When, Then } = require('@wdio/cucumber-framework');
 
 const LoginPage = require('../pageobjects/login.page');
-const SecurePage = require('../pageobjects/secure.page');
+const SchedulePage = require('../pageobjects/schedule.page');
 
 const pages = {
     login: LoginPage
@@ -44,9 +44,35 @@ When(/^I login with "([^"]*)" and "([^"]*)"$/, async (username, password) => {
     await LoginPage.login(username, password);
 });
 
-Then(/^I expect to be on the Homepage$/, async () => {
-    await expect(browser).toHaveUrl('https://test1234.planday.com/home');
+
+Then(/^I expect to be on the "(.*)"$/, async (name) => {
+    const pageUrls = {
+        'Homepage': "https://test1234.planday.com/home",
+        'Schedule page': "https://test1234.planday.com/schedule",
+    };
+    await expect(browser).toHaveUrl(pageUrls[name]);
 });
+
+When(/^I click the navigation menu item Schedule$/, async () => {
+    await SchedulePage.navScheduleLink.click();
+});
+
+Then(/^I should be able to see 3 employees$/, async () => {
+    // switch to iframe as the sheet is in an iframe
+    const mainIframe = await $('[data-testID="app-frame"]');
+    await mainIframe.waitForExist({ timeout: 5000 });
+    await browser.switchToFrame(mainIframe);
+
+    // interact with element within iframe
+    await SchedulePage.employeeText;
+    let count = await $$('.row-header3__text__title*=Employee');
+    expect(count.length).toEqual(3);
+});
+
+
+
+
+
 
 
 
