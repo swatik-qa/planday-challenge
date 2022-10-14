@@ -35,3 +35,7 @@ git clone https://github.com/swatik-qa/planday-challenge.git
 2. While running the login test for invalid credentials, I came across captcha verification because of repeated invalid credentials. Just to note that captcha is not handled as a part of this assessment as of now. One of the ways to handle this would be to whitelist test account so that captcha is not shown for this account.
 3. As a part of test wherein new shift is added for Employee 1, once a shift is added as a result of the test execution, next time same test will fail. This is because there is already an entry for Employee on that day.
 4. While testing the schedule page scenarios, I noticed the presence of iframe in HTML DOM which was handled by first waiting for the iframe to load, then switching to the iframe and then interacting with the elements within the iframe
+
+## TEST REPORT
+
+Screenshot 2022-10-14 at 10.40.22 AM
