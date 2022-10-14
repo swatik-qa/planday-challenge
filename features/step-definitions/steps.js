@@ -60,7 +60,7 @@ When(/^I click the navigation menu item Schedule$/, async () => {
 Then(/^I should be able to see 3 employees$/, async () => {
     // switch to iframe as the sheet is in an iframe
     const mainIframe = await $('[data-testID="app-frame"]');
-    await mainIframe.waitForExist({ timeout: 5000 });
+    await mainIframe.waitForExist({ timeout: 15000 });
     await browser.switchToFrame(mainIframe);
 
     // interact with element within iframe
@@ -72,7 +72,7 @@ Then(/^I should be able to see 3 employees$/, async () => {
 When(/^I click on the grid cell$/, async () => {
     // switch to iframe as the sheet is in an iframe
     const mainIframe = await $('[data-testID="app-frame"]');
-    await mainIframe.waitForExist({ timeout: 5000 });
+    await mainIframe.waitForExist({ timeout: 15000 });
     await browser.switchToFrame(mainIframe);
     await SchedulePage.gridCellEmployee1.click();
 });
@@ -87,11 +87,10 @@ When(/^I create shift with from time "([^"]*)" and to time "([^"]*)"$/, async (f
 
 When(/^I click on Create button$/, async () => {
     await SchedulePage.createButton.click();
-    await browser.pause(5000);
 });
 
 Then(/^I should be able to see the created shift on the schedule grid$/, async () => {
-    await SchedulePage.shiftTile.waitForExist({ timeout: 5000 });
+    await SchedulePage.shiftTile.waitForExist({ timeout: 15000 });
     await expect(SchedulePage.shiftTile).toBePresent();
 });
 
