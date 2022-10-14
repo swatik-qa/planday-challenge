@@ -38,4 +38,4 @@ git clone https://github.com/swatik-qa/planday-challenge.git
 
 ## TEST REPORT
 
-Screenshot 2022-10-14 at 10.40.22 AM
+<img width="984" alt="Screenshot 2022-10-14 at 10 40 22 AM" src="https://user-images.githubusercontent.com/63454764/195817258-ca79ab24-ab6d-4228-995c-16124d966599.png">
